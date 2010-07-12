@@ -7,7 +7,8 @@ Group:		Sciences/Mathematics
 License:	GPL v2
 Source0:	http://www.geuz.org/gmsh/src/%{name}-%{version}-source.tgz
 URL:		http://www.geuz.org/gmsh/
-Packager:	Yann COLLETTE <ycollet at freesurf dot fr>
+# buildsystem issue
+#Packager:	Yann COLLETTE <ycollet at freesurf dot fr>
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot 
 
