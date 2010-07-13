@@ -40,21 +40,21 @@ The specification of any input to these modules is done either interactively
 using the graphical user interface or in ASCII text files using Gmsh's own
 scripting language.
 
-%description -l fr.UTF-8
+%description	-l fr.UTF-8
 Gmsh est un générateur automatique de maillage pour éléments finis. Il intègre des greffons permettant d'appeler des codes éléments finis et permet de faire du post-processing.
 Son objectif est de fournir un outil simple pour les problèmes académiques avec des géométries paramétrées ainsi que des capacités de visualisation évoluées.
 
 Gmsh est construit autour de quatres modules: geometrie, maillage, solveur et post-processing.
 La sélection d'un de ces modules peut se faire soit de façon interactive via l'interface utilisateur, soit via un fichier ASCII en utilisant le langage de script de Gmsh.
 
-%package demos
-Summary: Tutorial and demo files for Gmsh
+%package	demos
+Summary:	Tutorial and demo files for Gmsh
 Summary(fr.UTF-8): Tutoriels et fichiers de démonstration pour Gmsh
-Group: Science/Mathematics
+Group:		Sciences/Mathematics
 # known to have issues in mandriva build system
 #BuildArch: noarch
 
-%description demos
+%description	demos
 Gmsh is an automatic 3D finite element grid generator with a built-in CAD engine
 and post-processor. Its design goal is to provide a simple meshing tool for
 academic problems with parametric input and advanced visualization capabilities.
@@ -66,7 +66,7 @@ scripting language.
 
 This package contains tutorial and demo files for Gmsh.
 
-%description -l fr.UTF-8
+%description	-l fr.UTF-8
 Gmsh est un générateur automatique de maillage pour éléments finis. Il intègre des greffons permettant d'appeler des codes éléments finis et permet de faire du post-processing.
 Son objectif est de fournir un outil simple pour les problèmes académiques avec des géométries paramétrées ainsi que des capacités de visualisation évoluées.
 
