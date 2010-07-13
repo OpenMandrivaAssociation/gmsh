@@ -10,8 +10,9 @@ URL:		http://www.geuz.org/gmsh/
 # buildsystem issue
 #Packager:	Yann COLLETTE <ycollet at freesurf dot fr>
 
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot 
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot 
 
+BuildRequires:	cmake
 BuildRequires:	%{_lib}fltk-devel
 BuildRequires:	GL-devel
 BuildRequires:	gmp-devel
