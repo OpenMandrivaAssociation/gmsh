@@ -14,6 +14,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	cmake
 BuildRequires:	%{_lib}fltk-devel
+BuildRequires:	gcc-gfortran
 BuildRequires:	GL-devel
 BuildRequires:	gmp-devel
 BuildRequires:	jpeg-devel
