@@ -82,7 +82,7 @@ Ce paquet contient les tutoriels ainsi que les fichiers de démonstration pour G
         -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
         -DINCLUDE_INSTALL_DIR:PATH=%{_includedir} \
         -DLIB_INSTALL_DIR:PATH=%{_libdir} \
-        -DSYSCONF_INSTALL_DIR:PATH=%{__sysconfdir} \
+        -DSYSCONF_INSTALL_DIR:PATH=%{_sysconfdir} \
         -DSHARE_INSTALL_PREFIX:PATH=%{_datadir} \
         -DCMAKE_BUILD_TYPE=release
 
