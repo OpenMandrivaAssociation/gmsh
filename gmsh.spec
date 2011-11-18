@@ -1,8 +1,8 @@
 Name:		gmsh
 Summary:	Automatic 3D finite element grid generator
 Summary(fr.UTF-8): Un générateur de maillage 3D pour les éléments finis
-Version:	2.4.2
-Release:	%mkrel 1
+Version:	2.5.0
+Release:	1
 Group:		Sciences/Mathematics
 License:	GPL v2
 Source0:	http://www.geuz.org/gmsh/src/%{name}-%{version}-source.tgz
@@ -13,7 +13,7 @@ URL:		http://www.geuz.org/gmsh/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot 
 
 BuildRequires:	cmake
-BuildRequires:	%{_lib}fltk-devel
+BuildRequires:	fltk-devel
 BuildRequires:	gcc-gfortran
 BuildRequires:	GL-devel
 BuildRequires:	gmp-devel
@@ -29,6 +29,9 @@ BuildRequires:	zlib-devel
 Requires:	libatlas
 
 Patch0:		gmsh-2.4.2-format.patch
+Patch1:		gmsh-2.5.0-opencascade.patch
+Patch2:		gmsh-2.5.0-med.patch
+Patch3:		gmsh-2.5.0-png1.5.patch
 
 %description
 Gmsh is an automatic 3D finite element grid generator with a built-in CAD engine
@@ -78,6 +81,9 @@ Ce paquet contient les tutoriels ainsi que les fichiers de démonstration pour G
 %prep
 %setup -q -n %{name}-%{version}-source
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %cmake  -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
@@ -86,6 +92,7 @@ Ce paquet contient les tutoriels ainsi que les fichiers de démonstration pour G
         -DLIB_INSTALL_DIR:PATH=%{_libdir} \
         -DSYSCONF_INSTALL_DIR:PATH=%{_sysconfdir} \
         -DSHARE_INSTALL_PREFIX:PATH=%{_datadir} \
+	-DCMAKE_DL_LIB=-ldl \
         -DCMAKE_BUILD_TYPE=release
 
 %make
@@ -97,11 +104,13 @@ install -D utils/icons/gmsh48x48.png %{buildroot}%{_iconsdir}/%name.png
 
 %files
 %defattr(-,root,root,755)
-%doc README.txt doc/{CREDITS.txt,FAQ.txt,TODO.txt,VERSIONS.txt}
+%doc README.txt doc/{CREDITS.txt,VERSIONS.txt}
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_iconsdir}/%name.png
 %{_includedir}/%name/*
+%exclude %_docdir/%name/demos
+%exclude %_docdir/%name/tutorial
 
 %clean
 rm -rf %{buildroot}
