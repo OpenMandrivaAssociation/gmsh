@@ -1,0 +1,38 @@
+--- gmsh-2.5.0-source/Geo/OCC_Connect.cpp.orig	2011-11-18 19:54:33.017008957 -0200
++++ gmsh-2.5.0-source/Geo/OCC_Connect.cpp	2011-11-18 19:55:41.513382040 -0200
+@@ -597,7 +597,7 @@ void OCC_Connect::Intersect(BRep_Builder
+             double tolerance=std::max(BRep_Tool::Tolerance(edge),
+                                       BRep_Tool::Tolerance(vertex));
+             for(int i=1;i<=distance.NbExt();i++) {
+-                if(distance.Value(i)<tolerance) {
++                if(distance.SquareDistance(i)<tolerance) {
+                     try {
+                         // No idea why this can fail
+                         splitter1.Add(vertex,distance.Parameter(i),edge);
+@@ -616,7 +616,7 @@ void OCC_Connect::Intersect(BRep_Builder
+                             double d2=BRep_Tool::Pnt(v2).Distance(
+                                 BRep_Tool::Pnt(vertex));
+                             cout << "Adding " << i << " to edge " << e
+-                                << " distance=" << distance.Value(i)
++                                << " distance=" << distance.SquareDistance(i)
+                                 << " parameter=" << distance.Parameter(i)
+                                 << " point=" << distance.Point(i)
+                                 << " dv1=" << d1
+@@ -649,7 +649,7 @@ void OCC_Connect::Intersect(BRep_Builder
+             double tolerance=std::max(BRep_Tool::Tolerance(edge),
+                                       BRep_Tool::Tolerance(vertex));
+             for(int i=1;i<=distance.NbExt();i++) {
+-                if(distance.Value(i)<tolerance) {
++                if(distance.SquareDistance(i)<tolerance) {
+                     try {
+                         splitter2.Add(vertex,distance.Parameter(i),edge);
+                     }
+@@ -667,7 +667,7 @@ void OCC_Connect::Intersect(BRep_Builder
+                             double d2=BRep_Tool::Pnt(v2).Distance(
+                                 BRep_Tool::Pnt(vertex));
+                             cout << "Adding " << i << " to edge " << e
+-                                << " distance=" << distance.Value(i)
++                                << " distance=" << distance.SquareDistance(i)
+                                 << " parameter=" << distance.Parameter(i)
+                                 << " point=" << distance.Point(i)
+                                 << " dv1=" << d1

@@ -1,0 +1,23 @@
+diff -p -up gmsh-2.4.2-source/contrib/Metis/util.c.orig gmsh-2.4.2-source/contrib/Metis/util.c
+--- gmsh-2.4.2-source/contrib/Metis/util.c.orig	2010-07-12 16:39:27.577514263 -0300
++++ gmsh-2.4.2-source/contrib/Metis/util.c	2010-07-12 17:17:43.673517992 -0300
+@@ -20,17 +20,12 @@
+ void errexit(char *f_str,...)
+ {
+   va_list argp;
+-  char out1[256], out2[256];
+ 
++  fprintf(stdout, "Error! ");
+   va_start(argp, f_str);
+-  vsprintf(out1, f_str, argp);
++  vfprintf(stdout, f_str, argp);
+   va_end(argp);
+-
+-  sprintf(out2, "Error! %s", out1);
+-
+-  fprintf(stdout, out2);
+   fflush(stdout);
+-
+   abort();
+ }
+ 

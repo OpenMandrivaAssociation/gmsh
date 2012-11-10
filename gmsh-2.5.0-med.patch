@@ -1,0 +1,33 @@
+--- gmsh-2.5.0-source/Geo/GModelIO_MED.cpp.orig	2011-11-18 19:58:07.324173700 -0200
++++ gmsh-2.5.0-source/Geo/GModelIO_MED.cpp	2011-11-18 19:58:09.258184191 -0200
+@@ -26,7 +26,7 @@
+ #include "discreteVertex.h"
+ 
+ extern "C" {
+-#include <med.h>
++#include <med-2.3.6/med.h>
+ }
+ 
+ med_geometrie_element msh2medElementType(int msh)
+--- gmsh-2.5.0-source/Post/PViewDataGModelIO.cpp.orig	2011-11-18 20:02:37.790633566 -0200
++++ gmsh-2.5.0-source/Post/PViewDataGModelIO.cpp	2011-11-18 20:02:53.316717041 -0200
+@@ -238,7 +238,7 @@ bool PViewDataGModel::writeMSH(std::stri
+ #if defined(HAVE_MED)
+ 
+ extern "C" {
+-#include <med.h>
++#include <med-2.3.6/med.h>
+ }
+ 
+ extern int med2mshElementType(med_geometrie_element med);
+--- gmsh-2.5.0-source/Post/PViewIO.cpp.orig	2011-11-18 20:01:43.293340262 -0200
++++ gmsh-2.5.0-source/Post/PViewIO.cpp	2011-11-18 20:01:57.195415132 -0200
+@@ -211,7 +211,7 @@ bool PView::readMSH(std::string fileName
+ #if defined(HAVE_MED)
+ 
+ extern "C" {
+-#include <med.h>
++#include <med-2.3.6/med.h>
+ }
+ 
+ bool PView::readMED(std::string fileName, int fileIndex)

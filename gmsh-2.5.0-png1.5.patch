@@ -1,0 +1,10 @@
+--- gmsh-2.5.0-source/Graphics/gl2png.cpp.orig	2011-11-18 20:04:29.454233142 -0200
++++ gmsh-2.5.0-source/Graphics/gl2png.cpp	2011-11-18 20:04:37.444275990 -0200
+@@ -16,6 +16,7 @@ void create_png(FILE *file, PixelBuffer
+ #else
+ 
+ #include <png.h>
++#include <zlib.h>
+ 
+ #ifndef png_jmpbuf
+ #  define png_jmpbuf(png_ptr) ((png_ptr)->jmpbuf)
