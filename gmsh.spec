@@ -1,7 +1,7 @@
 Name:		gmsh
 Summary:	Automatic 3D finite element grid generator
 Version:	2.6.1
-Release:	1
+Release:	2
 Group:		Sciences/Mathematics
 License:	GPLv2
 Source0:	http://www.geuz.org/gmsh/src/%{name}-%{version}-source.tgz
@@ -103,3 +103,22 @@ install -D utils/icons/gmsh48x48.png %{buildroot}%{_iconsdir}/%name.png
 
 %files devel
 %{_includedir}/%name/*
+
+
+%changelog
+* Tue Jul 24 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 2.6.1-1
++ Revision: 810967
+- update to 2.6.1
+- separate devel package
+- remove fr summaries and descriptions from spec
+- various cleanups
+
+* Fri Nov 18 2011 Paulo Andrade <pcpa@mandriva.com.br> 2.5.0-1
++ Revision: 731673
+- Update to latest upstream release.
+
+* Wed Jul 14 2010 Paulo Andrade <pcpa@mandriva.com.br> 2.4.2-1mdv2011.0
++ Revision: 552963
+- Import gmsh
+- gmsh
+
