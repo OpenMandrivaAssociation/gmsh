@@ -101,5 +101,5 @@ This package contains development files for Gmsh.
 
 %install
 %makeinstall_std -C build
-install -D utils/icons/gmsh48x48.png %{buildroot}%{_iconsdir}/%{name}.png
+install -D utils/icons/solid_48x48.png %{buildroot}%{_iconsdir}/%{name}.png
 
