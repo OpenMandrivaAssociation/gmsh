@@ -1,7 +1,7 @@
 Summary:	Automatic 3D finite element grid generator
 Name:		gmsh
 Version:	2.8.4
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://www.geuz.org/gmsh/
