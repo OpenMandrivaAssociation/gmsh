@@ -9,6 +9,7 @@ Source0:	http://www.geuz.org/gmsh/src/%{name}-%{version}-source.tgz
 #Patch0:		gmsh-2.4.2-format.patch
 #Patch1:		gmsh-2.5.0-png1.5.patch
 BuildRequires:	cmake ninja
+BuildRequires:  cmake(MEDFile)
 BuildRequires:	cmake(opencascade)
 BuildRequires:	gcc-gfortran
 BuildRequires:	texinfo
@@ -16,8 +17,10 @@ BuildRequires:	fltk-devel
 BuildRequires:	gmp-devel
 BuildRequires:	gomp-devel
 BuildRequires:	hdf5-devel
+BuildRequires:  metis-devel
 BuildRequires:	pkgconfig(atlas)
 BuildRequires:	pkgconfig(blas)
+BuildRequires:  pkgconfig(eigen3)
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(lapack)
@@ -84,19 +87,19 @@ rm -fr contrib/mpeg_encode
 %build
 %cmake \
 	-Wno-dev \
-    %{?with_flexiblas:-DBLA_VENDOR=FlexiBLAS} \
-    -DENABLE_BUILD_LIB:BOOL=ON \
-    -DENABLE_BUILD_DYNAMIC:BOOL=ON \
-    -DENABLE_BUILD_SHARED:BOOL=ON \
-    -DENABLE_MPEG_ENCODE:BOOL=NO \
-    -DENABLE_BLOSSOM:BOOL=NO \
-    -DENABLE_CGNS:BOOL=ON \
-    -DENABLE_EIGEN:BOOL=ON \
-    -DEIGEN_INC=%{_includedir}/eigen3 \
-    -DENABLE_MED:BOOL=ON \
-    -DENABLE_METIS:BOOL=ON \
-    -DENABLE_OCC:BOOL=ON \
-    -DENABLE_SYSTEM_CONTRIB:BOOL=ON \
+	%{?with_flexiblas:-DBLA_VENDOR=FlexiBLAS} \
+	-DENABLE_BUILD_LIB:BOOL=ON \
+	-DENABLE_BUILD_DYNAMIC:BOOL=ON \
+	-DENABLE_BUILD_SHARED:BOOL=ON \
+	-DENABLE_MPEG_ENCODE:BOOL=OFF \
+	-DENABLE_BLOSSOM:BOOL=OFF \
+	-DENABLE_CGNS:BOOL=ON \
+	-DENABLE_EIGEN:BOOL=ON \
+	-DEIGEN_INC=%{_includedir}/eigen3 \
+	-DENABLE_MED:BOOL=ON \
+	-DENABLE_METIS:BOOL=ON \
+	-DENABLE_OCC:BOOL=ON \
+	-DENABLE_SYSTEM_CONTRIB:BOOL=ON \
 	-GNinja
 %ninja_build
 
