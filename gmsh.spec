@@ -6,7 +6,7 @@ License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://www.geuz.org/gmsh/
 Source0:	http://www.geuz.org/gmsh/src/%{name}-%{version}-source.tgz
-Patch0:		gmsh-2.11.1-add_missing_heades.patch
+Patch0:		gmsh-4.11.1-add_missing_heades.patch
 #Patch0:		gmsh-2.4.2-format.patch
 #Patch1:		gmsh-2.5.0-png1.5.patch
 BuildRequires:	cmake ninja
