@@ -115,7 +115,7 @@ rm -fr contrib/mpeg_encode
 %cmake \
 	-Wno-dev \
 	%{?with_flexiblas:-DBLA_VENDOR=FlexiBLAS} \
-	-DENABLE_BUILD_LIB:BOOL=ON \
+	-DENABLE_BUILD_LIB:BOOL=OFF \
 	-DENABLE_BUILD_DYNAMIC:BOOL=ON \
 	-DENABLE_BUILD_SHARED:BOOL=ON \
 	-DENABLE_MPEG_ENCODE:BOOL=OFF \
