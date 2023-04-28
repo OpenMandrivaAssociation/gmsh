@@ -43,7 +43,7 @@ using the graphical user interface or in ASCII text files using Gmsh's own
 scripting language.
 
 %files
-%doc README.txt doc/{CREDITS.txt,VERSIONS.txt}
+%doc README.txt CREDITS.txt CHANGELOG.txt doc/WELCOME.txt
 %{_bindir}/*
 %{_mandir}/man1/*
 %{_iconsdir}/%{name}.png
