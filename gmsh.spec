@@ -45,11 +45,36 @@ scripting language.
 %files
 %doc README.txt CREDITS.txt CHANGELOG.txt doc/WELCOME.txt
 %{_bindir}/*
+%{_libdir}/lib%{name}.so.*
 %{_mandir}/man1/*
 %{_iconsdir}/%{name}.png
 %exclude %{_docdir}/%{name}/demos
 %exclude %{_docdir}/%{name}/tutorial
 %exclude %{_docdir}/%{name}/examples
+%exclude %{_docdir}/%{name}/images
+
+#----------------------------------------------------------------------------
+
+%package       devel
+Summary:       Development files for Gmsh
+Group:         Development/Other
+
+%description   devel
+Gmsh is an automatic 3D finite element grid generator with a built-in CAD
+engine and post-processor. Its design goal is to provide a simple meshing tool
+for academic problems with parametric input and advanced visualization
+capabilities.
+
+Gmsh is built around four modules: geometry, mesh, solver and post-processing.
+The specification of any input to these modules is done either interactively
+using the graphical user interface or in ASCII text files using Gmsh's own
+scripting language.
+
+This package contains development files for Gmsh.
+
+%files devel
+%{_includedir}/%{name}*
+%{_libdir}/libgmsh.so
 
 #----------------------------------------------------------------------------
 
@@ -75,7 +100,8 @@ This package contains tutorial and demo files for Gmsh.
 %files demos
 %{_docdir}/%{name}/tutorials
 %{_docdir}/%{name}/examples
-%{_docdir}/%{name}/*.txt
+%{_docdir}/%{name}/%{name}.html
+%{_docdir}/%{name}/images/
 
 #----------------------------------------------------------------------------
 
