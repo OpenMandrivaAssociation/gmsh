@@ -6,9 +6,9 @@ License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		http://www.geuz.org/gmsh/
 Source0:	http://www.geuz.org/gmsh/src/%{name}-%{version}-source.tgz
-Patch0:		gmsh-4.11.1-add_missing_heades.patch
-#Patch0:		gmsh-2.4.2-format.patch
-#Patch1:		gmsh-2.5.0-png1.5.patch
+Patch0:		gmsh-4.11.1-fix_install_path.patch
+Patch1:		gmsh-4.11.1-add_missing_heades.patch
+
 BuildRequires:	cmake ninja
 BuildRequires:  cmake(MEDFile)
 BuildRequires:	cmake(opencascade)
@@ -48,10 +48,12 @@ scripting language.
 %{_libdir}/lib%{name}.so.*
 %{_mandir}/man1/*
 %{_iconsdir}/%{name}.png
-%exclude %{_docdir}/%{name}/demos
-%exclude %{_docdir}/%{name}/tutorial
+%{py_platsitedir}/onelab.py
+%{py_platsitedir}/__pycache__/onelab.*
+%exclude %{_docdir}/%{name}/*txt
 %exclude %{_docdir}/%{name}/examples
 %exclude %{_docdir}/%{name}/images
+%exclude %{_docdir}/%{name}/tutorials
 
 #----------------------------------------------------------------------------
 
@@ -78,6 +80,20 @@ This package contains development files for Gmsh.
 
 #----------------------------------------------------------------------------
 
+%package -n python-%{name}
+Summary:	Python API for %{name}
+%{?python_provide:%python_provide python-%name}
+
+%description -n python-%{name}
+Python3 API for %{name}.
+
+%files -n python-%{name}
+%{py_platsitedir}/%{name}.py
+%{py_platsitedir}/__pycache__/%{name}.*.pyc
+%{py_platsitedir}/%{name}*.*-info/
+
+#----------------------------------------------------------------------------
+
 %package	demos
 Summary:	Tutorial and demo files for Gmsh
 Group:		Sciences/Mathematics
@@ -100,7 +116,7 @@ This package contains tutorial and demo files for Gmsh.
 %files demos
 %{_docdir}/%{name}/tutorials
 %{_docdir}/%{name}/examples
-%{_docdir}/%{name}/%{name}.html
+%{_docdir}/%{name}/*.txt
 %{_docdir}/%{name}/images/
 
 #----------------------------------------------------------------------------
