@@ -46,6 +46,10 @@ scripting language.
 %doc README.txt CREDITS.txt CHANGELOG.txt doc/WELCOME.txt
 %{_bindir}/*
 %{_libdir}/lib%{name}.so.*
+%{_datadir}/%{name}/
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/pixmaps/%{name}.xpm
+%{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_mandir}/man1/*
 %{_iconsdir}/%{name}.png
 %{py_platsitedir}/onelab.py
@@ -151,6 +155,28 @@ rm -fr contrib/mpeg_encode
 # remove static libraries
 #find %{buildroot} -type f -name libgmsh.a -exec rm -f {} \;
 
+# .deskop
+install -dm 0755 %{buildroot}/%{_datadir}/applications
+cat << EOF > %{buildroot}/%{_datadir}/applications/%{name}.desktop
+[Desktop Entry]
+Version=1.0
+Name=Gmsh
+GenericName=Mesh Generator
+Comment=A 3D finite element mesh generator
+Exec=gmsh
+Icon=gmsh
+Type=Application
+Terminal=false
+Categories=Science;Engineering;
+EOF
+
 # icon
-install -D utils/icons/%{name}.png %{buildroot}%{_iconsdir}/%{name}.png
+for d in 16 32 48 64 72 128 256 512
+do
+	install -dm 0755 %{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/
+	convert -scale ${d}x${d} utils/icons/%{name}.png \
+		%{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/%{name}.png
+done
+install -dm 0755 %{buildroot}%{_datadir}/pixmaps/
+convert -scale 32x32 utils/icons/%{name}.png %{buildroot}%{_datadir}/pixmaps/%{name}.xpm
 
