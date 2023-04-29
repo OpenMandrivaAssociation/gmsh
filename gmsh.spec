@@ -52,7 +52,6 @@ scripting language.
 %{_datadir}/pixmaps/%{name}.xpm
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_mandir}/man1/*
-%{_iconsdir}/%{name}.png
 %{py_platsitedir}/onelab.py
 #{py_platsitedir}/__pycache__/onelab.*
 %exclude %{_docdir}/%{name}/*txt
