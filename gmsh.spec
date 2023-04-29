@@ -12,6 +12,7 @@ Patch1:		gmsh-4.11.1-add_missing_heades.patch
 BuildRequires:	cmake ninja
 BuildRequires:  cmake(MEDFile)
 BuildRequires:	cmake(opencascade)
+BuildRequires:	imagemagick
 BuildRequires:	gcc-gfortran
 BuildRequires:	texinfo
 BuildRequires:	fltk-devel
