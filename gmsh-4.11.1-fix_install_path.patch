@@ -4,7 +4,7 @@
    set(GMSH_INC ${CMAKE_INSTALL_INCLUDEDIR})
  endif()
  
-+execute_process ( COMMAND python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
++execute_process ( COMMAND python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
 +
  # mark targets as optional so we can install them separately if needed
  # (e.g. "make lib" or "make shared" followed by "make install/fast")
