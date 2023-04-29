@@ -89,7 +89,6 @@ Python3 API for %{name}.
 
 %files -n python-%{name}
 %{py_platsitedir}/%{name}.py
-#{py_platsitedir}/__pycache__/%{name}.*.pyc
 %{py_platsitedir}/%{name}*.*-info/
 
 #----------------------------------------------------------------------------
