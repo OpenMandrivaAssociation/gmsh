@@ -24,7 +24,7 @@
 +  install(FILES ${GMSH_JL} DESTINATION ${CMAKE_INSTALL_DATADIR}/${GMSH_LIB})
    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/METADATA DESTINATION
 -                ${GMSH_LIB}/gmsh-${GMSH_PYTHON_VERSION}.dist-info)
-+                ${PYTHON3_SITE_PACKAGES}//gmsh-${GMSH_PYTHON_VERSION}.dist-info)
++                ${PYTHON_SITE_PACKAGES}/gmsh-${GMSH_PYTHON_VERSION}.dist-info)
    if(ENABLE_PRIVATE_API)
      install(FILES ${GMSH_PRIVATE_API} DESTINATION ${GMSH_INC}/gmsh)
      if(HAVE_CONTRIB_EIGEN) # the private API depends on Eigen
