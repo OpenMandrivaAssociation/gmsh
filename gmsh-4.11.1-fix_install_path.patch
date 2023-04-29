@@ -1,5 +1,17 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
+diff -rupN --no-dereference gmsh-4.11.1-source/CMakeLists.txt gmsh-4.11.1-source-new/CMakeLists.txt
+--- gmsh-4.11.1-source/CMakeLists.txt	2022-12-21 15:34:04.867442050 +0100
++++ gmsh-4.11.1-source-new/CMakeLists.txt	2022-12-21 15:34:04.872442050 +0100
+@@ -275,7 +275,7 @@ if(ENABLE_RPATH)
+   # when building, don't use the install RPATH already (but later on when
+   # installing)
+   set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+-  set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
++  set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_LIBDIR}")
+ 
+   # add the automatically determined parts of the RPATH which point to
+   # directories outside the build tree to the install RPATH
 @@ -1915,6 +1915,8 @@ else()
    set(GMSH_INC ${CMAKE_INSTALL_INCLUDEDIR})
  endif()
@@ -21,7 +33,7 @@
 -  install(FILES ${GMSH_PY} DESTINATION ${GMSH_LIB})
 -  install(FILES ${GMSH_JL} DESTINATION ${GMSH_LIB})
 +  install(FILES ${GMSH_PY} DESTINATION ${PYTHON_SITE_PACKAGES})
-+  install(FILES ${GMSH_JL} DESTINATION share/${GMSH_LIB})
++  install(FILES ${GMSH_JL} DESTINATION share/gmsh)
    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/METADATA DESTINATION
 -                ${GMSH_LIB}/gmsh-${GMSH_PYTHON_VERSION}.dist-info)
 +                ${PYTHON_SITE_PACKAGES}/gmsh-${GMSH_PYTHON_VERSION}.dist-info)
