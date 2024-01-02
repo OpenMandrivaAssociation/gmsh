@@ -7,7 +7,7 @@ Group:		Sciences/Mathematics
 Url:		http://www.geuz.org/gmsh/
 Source0:	http://www.geuz.org/gmsh/src/%{name}-%{version}-source.tgz
 Patch0:		gmsh-4.11.1-fix_install_path.patch
-Patch1:		gmsh-4.11.1-add_missing_heades.patch
+#Patch1:		gmsh-4.11.1-add_missing_heades.patch
 
 BuildRequires:	cmake ninja
 BuildRequires:  cmake(MEDFile)
