@@ -1,7 +1,10 @@
+# blas
+%global blaslib flexiblas
+
 Summary:	Automatic 3D finite element grid generator
 Name:		gmsh
-Version:	4.12.1
-Release:	2
+Version:	4.13.1
+Release:	1
 License:	GPLv2+
 Group:		Sciences/Mathematics
 Url:		https://www.geuz.org/gmsh/
@@ -14,14 +17,12 @@ BuildRequires:  cmake(MEDFile)
 BuildRequires:	cmake(opencascade)
 BuildRequires:	imagemagick
 BuildRequires:	gcc-gfortran
-BuildRequires:	texinfo
 BuildRequires:	fltk-devel
 BuildRequires:	gmp-devel
 BuildRequires:	gomp-devel
 BuildRequires:	hdf5-devel
 BuildRequires:  metis-devel
-BuildRequires:	pkgconfig(atlas)
-BuildRequires:	pkgconfig(blas)
+BuildRequires:	pkgconfig(%{blaslib})
 BuildRequires:  pkgconfig(eigen3)
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
@@ -29,6 +30,7 @@ BuildRequires:	pkgconfig(lapack)
 BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	texinfo
 # There's no more devel package
 Obsoletes:	%{name}-devel < 2.8.4
 
@@ -131,9 +133,10 @@ rm -fr contrib/blossom
 rm -fr contrib/mpeg_encode
 
 %build
+export CXXFLAGS="%optflags `pkg-config --cflags cairo`"
 %cmake \
 	-Wno-dev \
-	%{?with_flexiblas:-DBLA_VENDOR=FlexiBLAS} \
+	-DBLA_VENDOR=FlexiBLAS \
 	-DENABLE_BUILD_LIB:BOOL=OFF \
 	-DENABLE_BUILD_DYNAMIC:BOOL=ON \
 	-DENABLE_BUILD_SHARED:BOOL=ON \
